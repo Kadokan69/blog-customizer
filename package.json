@@ -67,7 +67,7 @@
 		"format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\" --ignore-path ./.prettierignore",
 		"test": "npm run stylelint:fix && npm run lint && npm run format",
 		"prepare": "husky install",
-		"commit": "npm run test && cz",
+		"commit": "cz",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build"
 	},
@@ -82,9 +82,9 @@
 		"react-dom": "^18.2.0"
 	},
 	"lint-staged": {
-		"*.{css,scss}": "npm run stylelint:fix",
-		"*.{js,jsx,ts,tsx}": "npm run lint",
-		"*.{js,jsx,ts,tsx,json,css,scss,md}": "npm run format"
+  		"*.{css,scss}": "stylelint --fix",
+  		"*.{js,jsx,ts,tsx}": "eslint --fix",
+  		"*.{js,jsx,ts,tsx,json,css,scss,md}": "prettier --write --ignore-path ./.prettierignore"
 	},
 	"config": {
 		"commitizen": {
