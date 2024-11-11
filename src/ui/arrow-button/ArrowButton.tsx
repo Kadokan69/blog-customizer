@@ -1,4 +1,5 @@
 import arrow from 'src/images/arrow.svg';
+import { useState, useEffect } from 'react';
 
 import styles from './ArrowButton.module.scss';
 import clsx from 'clsx';
@@ -12,6 +13,7 @@ type ArrowButtonProps = {
 };
 
 export const ArrowButton = ({ isOpen, onClick }: ArrowButtonProps) => {
+	
 	return (
 		/* Не забываем указаывать role и aria-label атрибуты для интерактивных элементов */
 		<div
