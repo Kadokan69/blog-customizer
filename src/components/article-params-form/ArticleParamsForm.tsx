@@ -87,9 +87,7 @@ export const ArticleParamsForm = ({
 				}}
 			/>
 			<aside
-				className={clsx(styles.container, {
-					[styles.container_open]: isMenuOpen,
-				})}
+				className={clsx(styles.container, { [styles.container_open]: isMenuOpen })}
 				ref={rootRef}>
 				<form className={styles.form}>
 					<Text as='h2' size={31} weight={800} uppercase>
