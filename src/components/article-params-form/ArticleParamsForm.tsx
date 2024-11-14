@@ -29,7 +29,7 @@ export const ArticleParamsForm = ({
 	setAtricaleState,
 }: TArticleParamsForm) => {
 	const rootRef = useRef<HTMLDivElement>(null);
-	const [isOpen, setIsOpen] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [selectFontFamilyOption, setSelectFontFamilyOption] = useState(
 		articaleState.fontFamilyOption
 	);
@@ -47,9 +47,9 @@ export const ArticleParamsForm = ({
 	);
 
 	useOutsideClickClose({
-		isOpen,
+		isOpen: isMenuOpen,
 		rootRef,
-		onChange: setIsOpen,
+		onChange: setIsMenuOpen,
 	});
 
 	const hendelSubmit = (e?: Event) => {
@@ -81,13 +81,15 @@ export const ArticleParamsForm = ({
 	return (
 		<>
 			<ArrowButton
-				isOpen={isOpen}
+				isOpen={isMenuOpen}
 				onClick={() => {
-					setIsOpen(!isOpen);
+					setIsMenuOpen(!isMenuOpen);
 				}}
 			/>
 			<aside
-				className={clsx(styles.container, { [styles.container_open]: isOpen })}
+				className={clsx(styles.container, {
+					[styles.container_open]: isMenuOpen,
+				})}
 				ref={rootRef}>
 				<form className={styles.form}>
 					<Text as='h2' size={31} weight={800} uppercase>
