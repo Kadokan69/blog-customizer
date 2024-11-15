@@ -14,6 +14,7 @@ export const useOutsideClickClose = ({
 	onChange,
 }: UseOutsideClickClose) => {
 	useEffect(() => {
+		if (!isOpen) return;
 		const handleClick = (event: MouseEvent) => {
 			const { target } = event;
 			if (target instanceof Node && !rootRef.current?.contains(target)) {
@@ -21,7 +22,6 @@ export const useOutsideClickClose = ({
 				onChange?.(false);
 			}
 		};
-
 		window.addEventListener('mousedown', handleClick);
 
 		return () => {
